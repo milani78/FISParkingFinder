@@ -28,6 +28,7 @@
 @end
 
 @implementation ViewController
+//Change this to NSString *const
 #define METERS_PER_MILE 1609.344
 
 
@@ -36,6 +37,21 @@
 {
     
     [super viewDidLoad];
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [self.locationManager requestWhenInUseAuthorization];
+    
+    
+    //1 main Array of Sign Objects
+    //1 AT FIRST empty arrary which will then contain the sign objects that are cool witht the current time.
+    
+    // Go into a for loop over some array of ALL of the signs
+    // Apply an if statement over each object in the array and see if it is COOL with the curren time, if it is add it to ANOTHER array.
+    
+    
+    
     
     // zooms in on lower manhattan
     
@@ -48,48 +64,128 @@
     /*****************************
      *    OLD DATABASE OBJECT    *
      *****************************/
+//    
+//    // get database path
+//    
+//    NSString *sqlitePath = [[NSBundle mainBundle]
+//                      pathForResource:@"manhattan-sign-locations" ofType:@"sqlite"];
+//    NSLog(@"DATABASE IS:%@", sqlitePath);
+//    
+//    if (![[NSFileManager defaultManager] fileExistsAtPath:sqlitePath]) {
+//        NSLog(@"DID NOT FIND FILE AT %@", sqlitePath);
+//    }
+//
+//    
+//    // open the database
+//    
+//    sqlite3 *theDatabase;
+//    if (!(sqlite3_open([sqlitePath UTF8String], &theDatabase) == SQLITE_OK)) {
+//        NSLog(@"ERROR. COULD NOT OPEN AT %@", sqlitePath);
+//    }
+//    
+//    
+//    // create NSString and C string for SQL statement
+//    
+//    NSMutableString *sqlStatementNSString = [[NSMutableString alloc] initWithString:@"SELECT * FROM locations;"];
+//    
+//    NSLog(@"sqlStatementNSString is %@", sqlStatementNSString);
+//    
+//    const char *sql = [sqlStatementNSString UTF8String];
+//
+//    
+//    // initialize and prepare a SQL statement
+//    
+//    sqlite3_stmt *sqlStatement;
+//    int status = sqlite3_prepare(theDatabase, sql, -1, &sqlStatement, NULL);
+//    if (status != SQLITE_OK) {
+//        NSLog(@"PROBLEM WITH PREPARE STATEMENT: %d %s", status, sqlite3_errmsg(theDatabase));
+//    }
+//    
+//    
+//    // step through the SQL statement
+//    
+//    self.signObjects = [[NSMutableArray alloc] init];
+//
+//    while (sqlite3_step(sqlStatement) == SQLITE_ROW) {
+//        NSInteger signSequence = (NSInteger)sqlite3_column_int(sqlStatement, 2);
+//        NSInteger signFeetFromStreet = (NSInteger)sqlite3_column_int(sqlStatement, 3);
+//        char *signRegulation = (char *)sqlite3_column_text(sqlStatement, 5) ?: "";  //  ?: ""   is for when the entry is null, to feed an empty string
+//        char *signMainStreet = (char *)sqlite3_column_text(sqlStatement, 7) ?: "";
+//        char *signFromStreet = (char *)sqlite3_column_text(sqlStatement, 8) ?: "";
+//        char *signToStreet = (char *)sqlite3_column_text(sqlStatement, 9) ?: "";
+//        char *signStreetSide = (char *)sqlite3_column_text(sqlStatement, 10) ?: "";
+//
+//    // assign to objects and put into array
+//    
+//        NSString *regulation = [NSString stringWithUTF8String:signRegulation];
+//        NSString *mainStreet = [NSString stringWithUTF8String:signMainStreet];
+//        NSString *fromStreet = [NSString stringWithUTF8String:signFromStreet];
+//        NSString *toStreet = [NSString stringWithUTF8String:signToStreet];
+//        NSString *streetSide = [NSString stringWithUTF8String:signStreetSide];
+//        
+//        NSDictionary *aSign = [[NSDictionary alloc] initWithObjects:@[@(signSequence), @(signFeetFromStreet), regulation, mainStreet, fromStreet, toStreet, streetSide] forKeys:@[@"sequence", @"feetFromStreet", @"regulation", @"mainStreet", @"fromStreet", @"toStreet", @"streetSide"]];
+//        
+//        [self.signObjects addObject:aSign];
+//        
+//        
+//        
+//    }
+//    
+//    sqlite3_finalize(sqlStatement);
+//    sqlite3_close(theDatabase);
+
+    
+//    NSLog(@"%@", self.signObjects);
+
+ 
+    
+    
+    
+    /*****************************
+     *    NEW DATABASE OBJECT    *
+     *****************************/
     
     // get database path
     
-    NSString *sqlitePath = [[NSBundle mainBundle]
-                      pathForResource:@"manhattan-sign-locations" ofType:@"sqlite"];
-    NSLog(@"DATABASE IS:%@", sqlitePath);
+    NSString *sqlitePath2 = [[NSBundle mainBundle]
+                            pathForResource:@"test" ofType:@"sqlite"];
+    NSLog(@"DATABASE IS:%@", sqlitePath2);
     
-    if (![[NSFileManager defaultManager] fileExistsAtPath:sqlitePath]) {
-        NSLog(@"DID NOT FIND FILE AT %@", sqlitePath);
+    if (![[NSFileManager defaultManager] fileExistsAtPath:sqlitePath2]) {
+        NSLog(@"DID NOT FIND FILE AT %@", sqlitePath2);
     }
-
+    
     
     // open the database
     
-    sqlite3 *theDatabase;
-    if (!(sqlite3_open([sqlitePath UTF8String], &theDatabase) == SQLITE_OK)) {
-        NSLog(@"ERROR. COULD NOT OPEN AT %@", sqlitePath);
+    sqlite3 *signDatabase;
+    if (!(sqlite3_open([sqlitePath2 UTF8String], &signDatabase) == SQLITE_OK)) {
+        NSLog(@"ERROR. COULD NOT OPEN AT %@", sqlitePath2);
     }
     
     
     // create NSString and C string for SQL statement
     
-    NSMutableString *sqlStatementNSString = [[NSMutableString alloc] initWithString:@"SELECT * FROM locations;"];
+    NSMutableString *sqlStatementNSString = [[NSMutableString alloc] initWithString:@"SELECT * FROM sign-locations-test2;"];
     
     NSLog(@"sqlStatementNSString is %@", sqlStatementNSString);
     
     const char *sql = [sqlStatementNSString UTF8String];
-
+    
     
     // initialize and prepare a SQL statement
     
     sqlite3_stmt *sqlStatement;
-    int status = sqlite3_prepare(theDatabase, sql, -1, &sqlStatement, NULL);
+    int status = sqlite3_prepare(signDatabase, sql, -1, &sqlStatement, NULL);
     if (status != SQLITE_OK) {
-        NSLog(@"PROBLEM WITH PREPARE STATEMENT: %d %s", status, sqlite3_errmsg(theDatabase));
+        NSLog(@"PROBLEM WITH PREPARE STATEMENT: %d %s", status, sqlite3_errmsg(signDatabase));
     }
     
     
     // step through the SQL statement
     
     self.signObjects = [[NSMutableArray alloc] init];
-
+    
     while (sqlite3_step(sqlStatement) == SQLITE_ROW) {
         NSInteger signSequence = (NSInteger)sqlite3_column_int(sqlStatement, 2);
         NSInteger signFeetFromStreet = (NSInteger)sqlite3_column_int(sqlStatement, 3);
@@ -98,9 +194,9 @@
         char *signFromStreet = (char *)sqlite3_column_text(sqlStatement, 8) ?: "";
         char *signToStreet = (char *)sqlite3_column_text(sqlStatement, 9) ?: "";
         char *signStreetSide = (char *)sqlite3_column_text(sqlStatement, 10) ?: "";
-
-    // assign to objects and put into array
-    
+        
+        // assign to objects and put into array
+        
         NSString *regulation = [NSString stringWithUTF8String:signRegulation];
         NSString *mainStreet = [NSString stringWithUTF8String:signMainStreet];
         NSString *fromStreet = [NSString stringWithUTF8String:signFromStreet];
@@ -116,12 +212,18 @@
     }
     
     sqlite3_finalize(sqlStatement);
-    sqlite3_close(theDatabase);
-
+    sqlite3_close(signDatabase);
+    
     
     NSLog(@"%@", self.signObjects);
+    
+    
 
- 
+    
+    
+    
+    
+    
     
     
     
@@ -144,10 +246,22 @@
 
     //putting sign objects on the map
     
-    FISSign *aSign = [[FISSign alloc] initWithCoordinates:CLLocationCoordinate2DMake(40.707721, -74.012952) hourStarts:12 hourEnds:13 signDays:daysOfTheWeek regulation:@"FREE PARKING ALL THE TIME! :)"withMapView:self.mapView withDatePicker:self.datePicker];
+    FISSign *aSign = [[FISSign alloc] initWithCoordinates:CLLocationCoordinate2DMake(40.707721, -74.012952)
+                                               hourStarts:12
+                                                 hourEnds:13
+                                                 signDays:daysOfTheWeek
+                                               regulation:@"FREE PARKING ALL THE TIME! :)"
+                                              withMapView:self.mapView
+                                           withDatePicker:self.datePicker];
     
 
-    FISSign *anotherSign = [[FISSign alloc] initWithCoordinates:CLLocationCoordinate2DMake(40.707019, -74.013433) hourStarts:13 hourEnds:15 signDays:daysOfTheWeek regulation:@"FREE PARKING ALL THE TIME! :)"withMapView:self.mapView withDatePicker:self.datePicker];
+    FISSign *anotherSign = [[FISSign alloc] initWithCoordinates:CLLocationCoordinate2DMake(40.707019, -74.013433)
+                                                     hourStarts:13
+                                                       hourEnds:15
+                                                       signDays:daysOfTheWeek
+                                                     regulation:@"FREE PARKING ALL THE TIME! :)"
+                                                    withMapView:self.mapView
+                                                 withDatePicker:self.datePicker];
 
 
     

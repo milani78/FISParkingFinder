@@ -52,6 +52,7 @@
 		A46CB0F11BF94CAB00D35BB3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A46CB0F31BF97D4B00D35BB3 /* FISCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISCircle.h; sourceTree = "<group>"; };
 		A46CB0F41BF97D4B00D35BB3 /* FISCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISCircle.m; sourceTree = "<group>"; };
+		A46CB0F71BFBD9E900D35BB3 /* test.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.sqlite; sourceTree = "<group>"; };
 		B07114117FFBE16B6BF35287 /* Pods-FISParkingFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FISParkingFinder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FISParkingFinder/Pods-FISParkingFinder.debug.xcconfig"; sourceTree = "<group>"; };
 		B1578EFEA1ADAC603D18C72A /* libPods-FISParkingFinder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FISParkingFinder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -131,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				A41ACF161BF3A766009B18C7 /* manhattan-sign-locations.sqlite */,
+				A46CB0F71BFBD9E900D35BB3 /* test.sqlite */,
 				A41ACF121BF38B52009B18C7 /* ManhattanSignsLocations-200results.sql */,
 				A41ACEF71BF19295009B18C7 /* main.m */,
 			);
