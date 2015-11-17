@@ -36,14 +36,17 @@
         _coordinates = coordinates;
         _hourStarts = hourStarts;
         _hourEnds = hourEnds;
-        _signDays = [[NSArray alloc] init];
+        _signDays = signDays;
         _regulation = regulation;
         
         mapView.delegate = self;
         
-        FISCircle *aCircle = (FISCircle *)[FISCircle circleWithCenterCoordinate:coordinates radius:9];
-        aCircle.color = [UIColor colorWithRed:0 green:255 blue:213 alpha:0.8];
-        [mapView addOverlay:aCircle]; // adding sign to the map as overlay
+        //commenting for now to test IF STATEMENT
+//        FISCircle *aCircle = (FISCircle *)[FISCircle circleWithCenterCoordinate:coordinates radius:9];
+//        aCircle.color = [UIColor colorWithRed:0 green:255 blue:213 alpha:0.8];
+//        [mapView addOverlay:aCircle];
+        
+         // adding sign to the map as overlay
         
 //        [self displayCircle];
     }
@@ -110,7 +113,7 @@
         
              
         
-        if (self.hourStarts <= hour < self.hourEnds && dayOfWeek == i)
+        if ((self.hourStarts <= hour) && (hour < self.hourEnds) && (dayOfWeek == i))
         {
             
             // hide the circle

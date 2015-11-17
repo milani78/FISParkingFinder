@@ -20,6 +20,7 @@
 
 
 
+
 @interface ViewController () <MKOverlay, MKAnnotation, MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -36,6 +37,8 @@
 {
     
     [super viewDidLoad];
+    
+    _mapView.delegate = self;
     
     // zooms in on lower manhattan
     
@@ -131,28 +134,93 @@
     
     // from Date Picker
     
-     NSDate *currentDate = self.datePicker.date;
-     NSCalendar *currentCalendar = [NSCalendar currentCalendar];
-     NSDateComponents *dateComponents = [currentCalendar components:(NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:currentDate];
-     NSUInteger dayOfWeek = [dateComponents weekday];
-     NSUInteger hour = [dateComponents hour];
+//     NSDate *currentDate = self.datePicker.date;
+//     NSCalendar *currentCalendar = [NSCalendar currentCalendar];
+//     NSDateComponents *dateComponents = [currentCalendar components:(NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:currentDate];
+//     NSUInteger dayOfWeek = [dateComponents weekday];
+//     NSUInteger hour = [dateComponents hour];
+//    NSLog(@"%lu", hour);
+//    // placeholder days array
+//    
+//     NSArray *daysOfTheWeek = @[@"nil", @"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday"];
     
-    // placeholder days array
-    
-     NSArray *daysOfTheWeek = @[@"nil", @"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday"];
-     
 
     //putting sign objects on the map
     
-    FISSign *aSign = [[FISSign alloc] initWithCoordinates:CLLocationCoordinate2DMake(40.707721, -74.012952) hourStarts:12 hourEnds:13 signDays:daysOfTheWeek regulation:@"FREE PARKING ALL THE TIME! :)"withMapView:self.mapView withDatePicker:self.datePicker];
-    
-
-    FISSign *anotherSign = [[FISSign alloc] initWithCoordinates:CLLocationCoordinate2DMake(40.707019, -74.013433) hourStarts:13 hourEnds:15 signDays:daysOfTheWeek regulation:@"FREE PARKING ALL THE TIME! :)"withMapView:self.mapView withDatePicker:self.datePicker];
+//commented out for time being to test IF STATEMENT
+    //    FISSign *aSign = [[FISSign alloc] initWithCoordinates:CLLocationCoordinate2DMake(40.707721, -74.012952) hourStarts:12 hourEnds:13 signDays:daysOfTheWeek regulation:@"FREE PARKING ALL THE TIME! :)"withMapView:self.mapView withDatePicker:self.datePicker];
+//    
+//
+//    FISSign *anotherSign = [[FISSign alloc] initWithCoordinates:CLLocationCoordinate2DMake(40.707019, -74.013433) hourStarts:13 hourEnds:15 signDays:daysOfTheWeek regulation:@"FREE PARKING ALL THE TIME! :)"withMapView:self.mapView withDatePicker:self.datePicker];
 
 
     
     }
 
+//Moved the picker to give viewController data from it for IF STATEMENT
+- (IBAction)datePicker:(id)sender
+{
+    NSDate *currentDate = self.datePicker.date;
+    NSCalendar *currentCalendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComponents = [currentCalendar components:(NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:currentDate];
+    NSUInteger dayOfWeek = [dateComponents weekday];
+    NSUInteger hour = [dateComponents hour];
+    NSLog(@"%lu", hour);
+    
+    // placeholder days array
+    
+    NSArray *daysOfTheWeek = @[@"nil", @"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday"];
+    NSLog(@"%@", daysOfTheWeek[dayOfWeek]);
+    
+//    CLLocationCoordinate2D aSignLocation;
+//    aSignLocation.latitude = 40.707721;
+//    aSignLocation.longitude = -74.012952;
+
+    FISSign *aSign = [[FISSign alloc] initWithCoordinates:CLLocationCoordinate2DMake(40.707721, -74.012952) hourStarts:12 hourEnds:16 signDays:@[@"Tuesday", @"Wednesday"] regulation:@"FREE PARKING ALL THE TIME! :)"withMapView:self.mapView withDatePicker:self.datePicker];
+    
+    
+    FISSign *anotherSign = [[FISSign alloc] initWithCoordinates:CLLocationCoordinate2DMake(40.707019, -74.013433) hourStarts:13 hourEnds:15 signDays:@[@"Tuesday"] regulation:@"FREE PARKING ALL THE TIME! :)"withMapView:self.mapView withDatePicker:self.datePicker];
+    NSArray *dots = @[aSign, anotherSign];
+
+    // this removes ALL overlays
+    [self.mapView removeOverlays: self.mapView.overlays];
+    for (FISSign *sign in dots) {
+        for (NSUInteger i = 0; i < (sign.signDays.count); i++)
+        {
+            NSLog(@"in for loop in datePickerDidPickDate");
+            if ((sign.hourStarts <= hour) && (hour < sign.hourEnds) && ([sign.signDays containsObject:daysOfTheWeek[dayOfWeek]]))
+            {
+                NSLog(@"MATCHED CRITERIA IN IF STATEMENT");
+                //shows the circle; copied from FISSign.m
+                FISCircle *aCircle = (FISCircle *)[FISCircle circleWithCenterCoordinate:sign.coordinates radius:9];
+                aCircle.color = [UIColor colorWithRed:0 green:255 blue:213 alpha:0.8];
+                [_mapView addOverlay:aCircle];
+            }
+        }
+
+    }
+    
+    
+}
+//copied from FISSign.m
+- (MKCircleRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+{
+
+    NSLog(@"GETTING CALLED MAP VIEW THING\n\n\n\n\n HI HI HI HI\n\n\n\n\n");
+    
+    if ([overlay isKindOfClass:FISCircle.class]) {
+        
+        FISCircle *circle = (FISCircle *)overlay;
+        UIColor *colorOfCircle = circle.color;
+        
+        MKCircleRenderer *circleView = [[MKCircleRenderer alloc] initWithOverlay:overlay];
+        circleView.fillColor = colorOfCircle;
+        
+        return circleView;
+    }
+    
+    return nil;
+}
 
 
 // next steps:
@@ -162,7 +230,14 @@
 // WHEN A CIRCLE IS TAPPED, A SMALL VIEW FADES IN THAT DISPLAYS THE SIGN'S REGULATION TEXT
 // CLOSE THE SMALL VIEW BY TAPPING ANYWHERE
 
-
+//-(BOOL)displayCircle:(FISSign *)streetSign
+//{
+//    NSUInteger signHourStarts = streetSign.hourStarts;
+//    NSUInteger signHourEnds = streetSign.hourEnds;
+//    if (()) {
+//        <#statements#>
+//    }
+//}
 
 
 
