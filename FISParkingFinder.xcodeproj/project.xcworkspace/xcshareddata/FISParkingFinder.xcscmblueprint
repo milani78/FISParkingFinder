@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "FD2D938DE403819937FDCA15C749F338B5EA1A8A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B6B2D8E131487472BC120F6CF1A1A9B84D2C2837" : 0,
+    "FD2D938DE403819937FDCA15C749F338B5EA1A8A" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A949F9A2-D6E0-401B-ADAB-1391BD04213A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "B6B2D8E131487472BC120F6CF1A1A9B84D2C2837" : "..",
+    "FD2D938DE403819937FDCA15C749F338B5EA1A8A" : "FISParkingFinder\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "FISParkingFinder",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "FISParkingFinder.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:milani78\/FISParkingFinder.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B6B2D8E131487472BC120F6CF1A1A9B84D2C2837"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:milani78\/FISParkingFinder.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FD2D938DE403819937FDCA15C749F338B5EA1A8A"
+    }
+  ]
+}
