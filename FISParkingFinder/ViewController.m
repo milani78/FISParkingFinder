@@ -46,6 +46,7 @@
     [self.mapView setRegion:viewRegion animated:YES];
     [self.mapView regionThatFits:viewRegion];
     
+    [self.mapView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mapTapped:)]];
     
     
     /*****************************
@@ -176,10 +177,22 @@
 //    aSignLocation.latitude = 40.707721;
 //    aSignLocation.longitude = -74.012952;
 
-    FISSign *aSign = [[FISSign alloc] initWithCoordinates:CLLocationCoordinate2DMake(40.707721, -74.012952) hourStarts:12 hourEnds:16 signDays:@[@"Tuesday", @"Wednesday"] regulation:@"FREE PARKING ALL THE TIME! :)"withMapView:self.mapView withDatePicker:self.datePicker];
+    FISSign *aSign = [[FISSign alloc] initWithCoordinates:CLLocationCoordinate2DMake(40.707721, -74.012952)
+                                               hourStarts:12
+                                                 hourEnds:16
+                                                 signDays:@[@"Tuesday", @"Wednesday"]
+                                               regulation:@"FREE PARKING ALL THE TIME! :)"
+                                              withMapView:self.mapView
+                                           withDatePicker:self.datePicker];
     
     
-    FISSign *anotherSign = [[FISSign alloc] initWithCoordinates:CLLocationCoordinate2DMake(40.707019, -74.013433) hourStarts:13 hourEnds:15 signDays:@[@"Tuesday"] regulation:@"FREE PARKING ALL THE TIME! :)"withMapView:self.mapView withDatePicker:self.datePicker];
+    FISSign *anotherSign = [[FISSign alloc] initWithCoordinates:CLLocationCoordinate2DMake(40.707019, -74.013433)
+                                                     hourStarts:13
+                                                       hourEnds:15
+                                                       signDays:@[@"Tuesday"]
+                                                     regulation:@"FREE PARKING ALL THE TIME! :)"
+                                                    withMapView:self.mapView
+                                                 withDatePicker:self.datePicker];
     NSArray *dots = @[aSign, anotherSign];
 
     // this removes ALL overlays
@@ -221,7 +234,94 @@
     
     return nil;
 }
+//making circles tappable
 
+-(void)mapTapped:(UITapGestureRecognizer *)recognizer
+{
+    
+    CGPoint point = [recognizer locationInView:self.mapView];
+    
+    NSArray *arrayOfStuff = self.mapView.overlays;
+
+    
+    id<MKOverlay> tappedOverlay = nil;
+    for (FISCircle *circle in self.mapView.overlays)
+    {
+        
+        MKOverlayRenderer * polygonRenderer = [self.mapView rendererForOverlay:circle];
+        if ( [polygonRenderer isKindOfClass:[MKPolygonRenderer class]]) {
+            
+            //Convert the point
+            CLLocationCoordinate2D  coordinate = [self.mapView convertPoint:point
+                                                       toCoordinateFromView:self.mapView];
+            MKMapPoint mapPoint = MKMapPointForCoordinate(coordinate);
+            CGPoint polygonViewPoint = [polygonRenderer pointForMapPoint:mapPoint];
+            
+            // with iOS 7 you need to invalidate the path, this is not required for iOS 8
+            
+            
+            
+            
+//            tapInPolygon = CGPathContainsPoint(polygonRenderer.path, NULL, polygonViewPoint, NO);
+        }
+        
+        
+        
+        
+//        MKPolygonView *view = (MKPolygonView *)[self.mapView viewForOverlay:circle];
+//        
+//        if (view){
+//            CGPoint touchPoint = [recognizer locationInView:self.mapView];
+//            CLLocationCoordinate2D touchMapCoordinate =
+//            [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
+//            
+//            MKMapPoint mapPoint = MKMapPointForCoordinate(touchMapCoordinate);
+//            
+//            CGPoint polygonViewPoint = [view pointForMapPoint:mapPoint];
+//            if(CGPathContainsPoint(view.path, NULL, polygonViewPoint, NO)){
+//                tappedOverlay = view;
+//                tappedOverlay.tag = i;
+//                break;
+//            }
+
+
+        
+        
+        CGRect rectOfCircle = CGRectMake(circle.boundingMapRect.origin.x, circle.boundingMapRect.origin.y, circle.boundingMapRect.size.width, circle.boundingMapRect.size.height);
+        
+        
+        CGRect something = [self.view convertRect:rectOfCircle fromView:self.mapView];
+        
+        
+        
+//        CGPoint test = [self.view convertRect: fromView:<#(nullable UIView *)#>]
+        
+        MKOverlayRenderer *view = [self.mapView rendererForOverlay:circle];
+        if (view)
+        {
+            
+            CGPoint point = [recognizer locationInView:self.mapView];
+            
+            
+//            CGRect viewFrameInMapView = [view.superview convertRect:view.frame toView:mapView];
+//            // Get touch point in the mapView's coordinate system
+//            CGPoint point = [recognizer locationInView:mapView];
+//            // Check if the touch is within the view bounds
+            
+            
+            
+            
+//            CGRect viewFrameInMapView = [view.superview convertRect:view.frame toView:mapView];
+//            CGPoint point = [recognizer locationInView:self.mapView];
+//            if (CGRectContainsPoint(viewFrameInMapView, point))
+//            {
+//                tappedOverlay = circle;
+//                break;
+//            }
+        }
+    }
+//    NSLog(@"Tapped view: %@", [mapView viewForOverlay:tappedOverlay]);
+}
 
 // next steps:
 

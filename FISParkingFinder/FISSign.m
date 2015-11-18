@@ -41,6 +41,10 @@
         
         mapView.delegate = self;
         
+        
+        self.circleButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        self.circleButton.backgroundColor = [UIColor clearColor];
+        
         //commenting for now to test IF STATEMENT
 //        FISCircle *aCircle = (FISCircle *)[FISCircle circleWithCenterCoordinate:coordinates radius:9];
 //        aCircle.color = [UIColor colorWithRed:0 green:255 blue:213 alpha:0.8];

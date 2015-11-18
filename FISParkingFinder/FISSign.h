@@ -12,6 +12,9 @@
 #import <CoreGraphics/CoreGraphics.h>
 
 
+
+
+
 @interface FISSign : NSObject  <MKOverlay, MKAnnotation, MKMapViewDelegate>
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinates;
@@ -25,6 +28,7 @@
 @property (nonatomic, strong) MKCircle *circle;
 @property (nonatomic, strong) MKMapView *mapView;
 @property (nonatomic, strong) UIDatePicker *datePicker;
+@property (nonatomic, strong) UIButton *circleButton;
 
 - (instancetype)init;
 

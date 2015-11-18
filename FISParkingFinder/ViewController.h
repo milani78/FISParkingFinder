@@ -16,5 +16,7 @@
 @property (nonatomic, strong) NSMutableArray *signObjects;
 @property (nonatomic, strong) CAShapeLayer *layer;
 
+- (void)mapTapped:(UITapGestureRecognizer *)recognizer;
+
 @end
 
