@@ -22,10 +22,11 @@
 		A41ACF3A1BF924E0009B18C7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41ACF391BF924E0009B18C7 /* MapKit.framework */; };
 		A41ACF3C1BF934A4009B18C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41ACF3B1BF934A4009B18C7 /* UIKit.framework */; };
 		A41ACF3E1BF94198009B18C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41ACF3D1BF94198009B18C7 /* CoreGraphics.framework */; };
+		A445150B1BFD35EC00BDD502 /* test2.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A445150A1BFD35EC00BDD502 /* test2.sqlite */; settings = {ASSET_TAGS = (); }; };
+		A445150D1BFD3A9500BDD502 /* test3.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A445150C1BFD3A9500BDD502 /* test3.sqlite */; settings = {ASSET_TAGS = (); }; };
 		A46CB0F01BF94C9700D35BB3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46CB0EF1BF94C9700D35BB3 /* CoreLocation.framework */; };
 		A46CB0F21BF94CAB00D35BB3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46CB0F11BF94CAB00D35BB3 /* Foundation.framework */; };
 		A46CB0F51BF97D4B00D35BB3 /* FISCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = A46CB0F41BF97D4B00D35BB3 /* FISCircle.m */; settings = {ASSET_TAGS = (); }; };
-		A46CB0F91BFC19B600D35BB3 /* test2.sql in Resources */ = {isa = PBXBuildFile; fileRef = A46CB0F81BFC19B600D35BB3 /* test2.sql */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,13 +50,12 @@
 		A41ACF391BF924E0009B18C7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A41ACF3B1BF934A4009B18C7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A41ACF3D1BF94198009B18C7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A445150A1BFD35EC00BDD502 /* test2.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = test2.sqlite; sourceTree = "<group>"; };
+		A445150C1BFD3A9500BDD502 /* test3.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = test3.sqlite; sourceTree = "<group>"; };
 		A46CB0EF1BF94C9700D35BB3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A46CB0F11BF94CAB00D35BB3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A46CB0F31BF97D4B00D35BB3 /* FISCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISCircle.h; sourceTree = "<group>"; };
 		A46CB0F41BF97D4B00D35BB3 /* FISCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISCircle.m; sourceTree = "<group>"; };
-		A46CB0F71BFBD9E900D35BB3 /* test.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.sqlite; sourceTree = "<group>"; };
-		A46CB0F81BFC19B600D35BB3 /* test2.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2.sql; sourceTree = "<group>"; };
-		A46CB0FA1BFC1A6900D35BB3 /* test2.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = test2.sqlite; sourceTree = "<group>"; };
 		B07114117FFBE16B6BF35287 /* Pods-FISParkingFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FISParkingFinder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FISParkingFinder/Pods-FISParkingFinder.debug.xcconfig"; sourceTree = "<group>"; };
 		B1578EFEA1ADAC603D18C72A /* libPods-FISParkingFinder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FISParkingFinder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -134,10 +134,9 @@
 		A41ACEF61BF19295009B18C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A445150C1BFD3A9500BDD502 /* test3.sqlite */,
+				A445150A1BFD35EC00BDD502 /* test2.sqlite */,
 				A41ACF161BF3A766009B18C7 /* manhattan-sign-locations.sqlite */,
-				A46CB0FA1BFC1A6900D35BB3 /* test2.sqlite */,
-				A46CB0F81BFC19B600D35BB3 /* test2.sql */,
-				A46CB0F71BFBD9E900D35BB3 /* test.sqlite */,
 				A41ACF121BF38B52009B18C7 /* ManhattanSignsLocations-200results.sql */,
 				A41ACEF71BF19295009B18C7 /* main.m */,
 			);
@@ -214,10 +213,11 @@
 			files = (
 				A41ACF091BF19295009B18C7 /* LaunchScreen.storyboard in Resources */,
 				A41ACF131BF38B52009B18C7 /* ManhattanSignsLocations-200results.sql in Resources */,
+				A445150B1BFD35EC00BDD502 /* test2.sqlite in Resources */,
+				A445150D1BFD3A9500BDD502 /* test3.sqlite in Resources */,
 				A41ACF171BF3A766009B18C7 /* manhattan-sign-locations.sqlite in Resources */,
 				A41ACF061BF19295009B18C7 /* Assets.xcassets in Resources */,
 				A41ACF011BF19295009B18C7 /* Main.storyboard in Resources */,
-				A46CB0F91BFC19B600D35BB3 /* test2.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

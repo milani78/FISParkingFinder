@@ -148,7 +148,7 @@
     // get database path
     
     NSString *sqlitePath = [[NSBundle mainBundle]
-                            pathForResource:@"test2" ofType:@"sqlite"];
+                            pathForResource:@"test3" ofType:@"sqlite"];
     NSLog(@"DATABASE IS:%@", sqlitePath);
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:sqlitePath]) {
@@ -166,7 +166,7 @@
     
     // create NSString and C string for SQL statement
     
-    NSMutableString *sqlStatementNSString = [[NSMutableString alloc] initWithString:@"SELECT * FROM test2;"];
+    NSMutableString *sqlStatementNSString = [[NSMutableString alloc] initWithString:@"SELECT * FROM test3;"];
     
     NSLog(@"sqlStatementNSString is %@", sqlStatementNSString);
     
@@ -186,17 +186,24 @@
     
     self.signObjects = [[NSMutableArray alloc] init];
     
+//    NSUInteger countOfWhileLoop = 1;
+    
     while (sqlite3_step(sqlStatement) == SQLITE_ROW) {
-        CGFloat latitude = (CGFloat)sqlite3_column_int64(sqlStatement, 1);
-        CGFloat longitude = (CGFloat)sqlite3_column_int64(sqlStatement, 2);
-        NSUInteger hourStarts = (NSUInteger)sqlite3_column_int(sqlStatement, 3);
-        NSUInteger hourEnds = (NSUInteger)sqlite3_column_int(sqlStatement, 4);
-        char *days = (char *)sqlite3_column_text(sqlStatement, 5);
-        char *regulation = (char *)sqlite3_column_text(sqlStatement, 6);
+        
+//        NSLog(@"While loop getting called for the %ld time", countOfWhileLoop);
+        
+        CGFloat latitude = (CGFloat)sqlite3_column_double(sqlStatement, 0);
+        CGFloat longitude = (CGFloat)sqlite3_column_double(sqlStatement, 1);
+        NSUInteger hourStarts = (NSUInteger)sqlite3_column_int(sqlStatement, 2);
+        NSUInteger hourEnds = (NSUInteger)sqlite3_column_int(sqlStatement, 3);
+        char *days = (char *)sqlite3_column_text(sqlStatement, 4) ?: "";
+        char *regulation = (char *)sqlite3_column_text(sqlStatement, 5) ?: "";
+        
         
         // assign to objects and put into array
         
         NSString *signDays = [NSString stringWithUTF8String:days];
+ //       [signDays stringByReplacingOccurrencesOfString:@"\"" withString:@""];
         NSArray *daysArray = [signDays componentsSeparatedByString:@","];
         NSString *signRegulation = [NSString stringWithUTF8String:regulation];
         
@@ -206,6 +213,7 @@
         
         [self.signObjects addObject:aSign];
         
+//        countOfWhileLoop ++;
         
         
     }
@@ -214,7 +222,7 @@
     sqlite3_close(signDatabase);
     
     
-    NSLog(@"%@", self.signObjects);
+    NSLog(@"THE SIGN OBJECT ARRAY'S DATA IS: %@", self.signObjects);
     
     
 
