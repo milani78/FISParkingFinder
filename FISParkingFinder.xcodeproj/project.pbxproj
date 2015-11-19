@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		69E21D67BCEC074053C6633D /* libPods-FISParkingFinder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1578EFEA1ADAC603D18C72A /* libPods-FISParkingFinder.a */; };
+		897819DC1BFE2960004CF706 /* FISAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 897819DB1BFE2960004CF706 /* FISAnnotation.m */; };
 		A41ACEF81BF19295009B18C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A41ACEF71BF19295009B18C7 /* main.m */; };
 		A41ACEFB1BF19295009B18C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A41ACEFA1BF19295009B18C7 /* AppDelegate.m */; };
 		A41ACEFE1BF19295009B18C7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41ACEFD1BF19295009B18C7 /* ViewController.m */; };
@@ -16,21 +17,23 @@
 		A41ACF061BF19295009B18C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A41ACF051BF19295009B18C7 /* Assets.xcassets */; };
 		A41ACF091BF19295009B18C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41ACF071BF19295009B18C7 /* LaunchScreen.storyboard */; };
 		A41ACF111BF38AA8009B18C7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A41ACF101BF38AA8009B18C7 /* libsqlite3.tbd */; };
-		A41ACF131BF38B52009B18C7 /* ManhattanSignsLocations-200results.sql in Resources */ = {isa = PBXBuildFile; fileRef = A41ACF121BF38B52009B18C7 /* ManhattanSignsLocations-200results.sql */; settings = {ASSET_TAGS = (); }; };
-		A41ACF171BF3A766009B18C7 /* manhattan-sign-locations.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A41ACF161BF3A766009B18C7 /* manhattan-sign-locations.sqlite */; settings = {ASSET_TAGS = (); }; };
-		A41ACF381BF923B5009B18C7 /* FISSign.m in Sources */ = {isa = PBXBuildFile; fileRef = A41ACF371BF923B5009B18C7 /* FISSign.m */; settings = {ASSET_TAGS = (); }; };
+		A41ACF131BF38B52009B18C7 /* ManhattanSignsLocations-200results.sql in Resources */ = {isa = PBXBuildFile; fileRef = A41ACF121BF38B52009B18C7 /* ManhattanSignsLocations-200results.sql */; };
+		A41ACF171BF3A766009B18C7 /* manhattan-sign-locations.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A41ACF161BF3A766009B18C7 /* manhattan-sign-locations.sqlite */; };
+		A41ACF381BF923B5009B18C7 /* FISSign.m in Sources */ = {isa = PBXBuildFile; fileRef = A41ACF371BF923B5009B18C7 /* FISSign.m */; };
 		A41ACF3A1BF924E0009B18C7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41ACF391BF924E0009B18C7 /* MapKit.framework */; };
 		A41ACF3C1BF934A4009B18C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41ACF3B1BF934A4009B18C7 /* UIKit.framework */; };
 		A41ACF3E1BF94198009B18C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41ACF3D1BF94198009B18C7 /* CoreGraphics.framework */; };
-		A445150B1BFD35EC00BDD502 /* test2.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A445150A1BFD35EC00BDD502 /* test2.sqlite */; settings = {ASSET_TAGS = (); }; };
 		A445150D1BFD3A9500BDD502 /* test3.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A445150C1BFD3A9500BDD502 /* test3.sqlite */; settings = {ASSET_TAGS = (); }; };
+		A445151D1BFE7DF700BDD502 /* invisible-button.gif in Resources */ = {isa = PBXBuildFile; fileRef = A445151C1BFE7DF700BDD502 /* invisible-button.gif */; settings = {ASSET_TAGS = (); }; };
 		A46CB0F01BF94C9700D35BB3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46CB0EF1BF94C9700D35BB3 /* CoreLocation.framework */; };
 		A46CB0F21BF94CAB00D35BB3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46CB0F11BF94CAB00D35BB3 /* Foundation.framework */; };
-		A46CB0F51BF97D4B00D35BB3 /* FISCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = A46CB0F41BF97D4B00D35BB3 /* FISCircle.m */; settings = {ASSET_TAGS = (); }; };
+		A46CB0F51BF97D4B00D35BB3 /* FISCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = A46CB0F41BF97D4B00D35BB3 /* FISCircle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		07B775709CCE560BAD6421B3 /* Pods-FISParkingFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FISParkingFinder.release.xcconfig"; path = "Pods/Target Support Files/Pods-FISParkingFinder/Pods-FISParkingFinder.release.xcconfig"; sourceTree = "<group>"; };
+		897819DA1BFE2960004CF706 /* FISAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISAnnotation.h; sourceTree = "<group>"; };
+		897819DB1BFE2960004CF706 /* FISAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISAnnotation.m; sourceTree = "<group>"; };
 		A41ACEF31BF19295009B18C7 /* FISParkingFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FISParkingFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A41ACEF71BF19295009B18C7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A41ACEF91BF19295009B18C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 		A41ACF3D1BF94198009B18C7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A445150A1BFD35EC00BDD502 /* test2.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = test2.sqlite; sourceTree = "<group>"; };
 		A445150C1BFD3A9500BDD502 /* test3.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = test3.sqlite; sourceTree = "<group>"; };
+		A445151C1BFE7DF700BDD502 /* invisible-button.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "invisible-button.gif"; sourceTree = "<group>"; };
 		A46CB0EF1BF94C9700D35BB3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A46CB0F11BF94CAB00D35BB3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A46CB0F31BF97D4B00D35BB3 /* FISCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISCircle.h; sourceTree = "<group>"; };
@@ -117,9 +121,12 @@
 				A41ACEFA1BF19295009B18C7 /* AppDelegate.m */,
 				A41ACEFC1BF19295009B18C7 /* ViewController.h */,
 				A41ACEFD1BF19295009B18C7 /* ViewController.m */,
+				A445151C1BFE7DF700BDD502 /* invisible-button.gif */,
 				A41ACEFF1BF19295009B18C7 /* Main.storyboard */,
 				A41ACF361BF923B5009B18C7 /* FISSign.h */,
 				A41ACF371BF923B5009B18C7 /* FISSign.m */,
+				897819DA1BFE2960004CF706 /* FISAnnotation.h */,
+				897819DB1BFE2960004CF706 /* FISAnnotation.m */,
 				A46CB0F31BF97D4B00D35BB3 /* FISCircle.h */,
 				A46CB0F41BF97D4B00D35BB3 /* FISCircle.m */,
 				A41ACF051BF19295009B18C7 /* Assets.xcassets */,
@@ -213,10 +220,10 @@
 			files = (
 				A41ACF091BF19295009B18C7 /* LaunchScreen.storyboard in Resources */,
 				A41ACF131BF38B52009B18C7 /* ManhattanSignsLocations-200results.sql in Resources */,
-				A445150B1BFD35EC00BDD502 /* test2.sqlite in Resources */,
 				A445150D1BFD3A9500BDD502 /* test3.sqlite in Resources */,
 				A41ACF171BF3A766009B18C7 /* manhattan-sign-locations.sqlite in Resources */,
 				A41ACF061BF19295009B18C7 /* Assets.xcassets in Resources */,
+				A445151D1BFE7DF700BDD502 /* invisible-button.gif in Resources */,
 				A41ACF011BF19295009B18C7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +271,7 @@
 				A41ACEFE1BF19295009B18C7 /* ViewController.m in Sources */,
 				A41ACEFB1BF19295009B18C7 /* AppDelegate.m in Sources */,
 				A41ACF381BF923B5009B18C7 /* FISSign.m in Sources */,
+				897819DC1BFE2960004CF706 /* FISAnnotation.m in Sources */,
 				A41ACEF81BF19295009B18C7 /* main.m in Sources */,
 				A46CB0F51BF97D4B00D35BB3 /* FISCircle.m in Sources */,
 				A41ACF041BF19295009B18C7 /* FISParkingFinder.xcdatamodeld in Sources */,

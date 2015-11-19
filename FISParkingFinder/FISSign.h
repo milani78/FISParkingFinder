@@ -10,9 +10,13 @@
 #import <MapKit/MapKit.h>
 #import <UIKit/UIKit.h>
 #import <CoreGraphics/CoreGraphics.h>
+#import "FISAnnotation.h"
 
 
-@interface FISSign : NSObject  <MKOverlay, MKAnnotation, MKMapViewDelegate>
+
+
+
+@interface FISSign : NSObject  <MKOverlay, MKAnnotation>
 
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 @property (nonatomic, readonly) CGFloat latitude;
@@ -42,7 +46,8 @@
 
 - (void)addCircle:(MKMapView *)mapView withCoordinates:(CLLocationCoordinate2D)coordinate;
 
-- (MKCircleRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay;
+//- (MKCircleRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay;
+
 
 
 

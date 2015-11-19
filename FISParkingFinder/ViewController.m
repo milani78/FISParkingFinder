@@ -17,6 +17,7 @@
 #import <MapKit/MapKit.h>
 #import "FISSign.h"
 #import "FISCircle.h"
+#import "FISAnnotation.h"
 
 
 
@@ -175,6 +176,7 @@
     
     // this removes ALL overlays
     [self.mapView removeOverlays: self.mapView.overlays];
+    [self.mapView removeAnnotations:self.mapView.annotations];
     for (FISSign *sign in self.signObjects)
     {
         NSLog(@"sign #%ld - hourStarts:%ld hourEnds:%ld signDays:%@",[self.signObjects indexOfObject:sign], sign.hourStarts, sign.hourEnds, sign.signDays);
@@ -189,6 +191,10 @@
                 FISCircle *aCircle = (FISCircle *)[FISCircle circleWithCenterCoordinate:sign.coordinate radius:9];
                 aCircle.color = [UIColor colorWithRed:0 green:255 blue:213 alpha:0.8];
                 [_mapView addOverlay:aCircle];
+                
+                FISAnnotation *anAnnotation = [[FISAnnotation alloc] initWithTitle:sign.regulation andCoordinate:sign.coordinate];
+                
+                [self.mapView addAnnotation:anAnnotation];
             }
         }
         
@@ -222,7 +228,24 @@
 
 
 
-
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    static NSString *AnnotationViewID = @"annotationViewID";
+    
+    MKAnnotationView *annotationView = (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:AnnotationViewID];
+    
+    if (annotationView == nil)
+    {
+        annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:AnnotationViewID];
+    }
+    
+    annotationView.calloutOffset = CGPointMake(0, 5);
+    annotationView.canShowCallout = YES;
+    annotationView.image = [UIImage imageNamed:@"invisible-button.gif"];
+    annotationView.annotation = annotation;
+    
+    return annotationView;
+}
 
 
 

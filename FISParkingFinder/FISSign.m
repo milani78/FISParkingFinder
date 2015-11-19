@@ -13,6 +13,7 @@
 #import <CoreLocation/CLLocation.h>
 #import <MapKit/MapKit.h>
 
+
 @implementation FISSign
 
 
@@ -21,7 +22,6 @@
     self = [self init];
     return self;
 }
-
 
 
 - (instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate
@@ -44,12 +44,16 @@
         _hourEnds = hourEnds;
         _signDays = signDays;
         _regulation = regulation;
+
+//        mapView.delegate = self;
+        self.circleButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        self.circleButton.backgroundColor = [UIColor clearColor];
         
-        mapView.delegate = self;
         
         // added from Matt's files
         self.circleButton = [UIButton buttonWithType:UIButtonTypeSystem];
         self.circleButton.backgroundColor = [UIColor clearColor];
+         // adding sign to the map as overlay
         
     }
     
@@ -72,31 +76,6 @@
     
     return newSign;
 }
-
-
-
-- (MKCircleRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
-{
-    
-    NSLog(@"GETTING CALLED MAP VIEW THING\n\n\n HI HI HI HI\n\n\n");
-    
-    if ([overlay isKindOfClass:FISCircle.class]) {
-        
-        FISCircle *circle = (FISCircle *)overlay;
-        UIColor *colorOfCircle = circle.color;
-        
-        MKCircleRenderer *circleView = [[MKCircleRenderer alloc] initWithOverlay:overlay];
-        circleView.fillColor = colorOfCircle;
-        
-        return circleView;
-    }
-    
-    return nil;
-}
-
-
-
-
 
 
 
