@@ -16,7 +16,7 @@
 
 
 
-@interface FISSign : NSObject  <MKOverlay, MKAnnotation, MKMapViewDelegate>
+@interface FISSign : NSObject  <MKOverlay, MKAnnotation>
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinates;
 @property (nonatomic, readonly) NSUInteger hourStarts;
@@ -30,7 +30,7 @@
 @property (nonatomic, strong) MKMapView *mapView;
 @property (nonatomic, strong) UIDatePicker *datePicker;
 @property (nonatomic, strong) UIButton *circleButton;
-@property (nonatomic, strong) MKAnnotationView *signAnnotation;
+//@property (nonatomic, strong) MKAnnotationView *signAnnotation;
 
 - (instancetype)init;
 
@@ -47,7 +47,7 @@
 
 - (void)addCircle:(MKMapView *)mapView withCoordinates:(CLLocationCoordinate2D)coordinates;
 
-- (MKCircleRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay;
+//- (MKCircleRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay;
 
 - (BOOL)displayCircle;
 

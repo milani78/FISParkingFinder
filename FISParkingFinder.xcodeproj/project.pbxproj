@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		69E21D67BCEC074053C6633D /* libPods-FISParkingFinder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1578EFEA1ADAC603D18C72A /* libPods-FISParkingFinder.a */; };
 		897819DC1BFE2960004CF706 /* FISAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 897819DB1BFE2960004CF706 /* FISAnnotation.m */; };
+		897819DE1BFE3525004CF706 /* invisible-button.gif in Resources */ = {isa = PBXBuildFile; fileRef = 897819DD1BFE3525004CF706 /* invisible-button.gif */; };
 		A41ACEF81BF19295009B18C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A41ACEF71BF19295009B18C7 /* main.m */; };
 		A41ACEFB1BF19295009B18C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A41ACEFA1BF19295009B18C7 /* AppDelegate.m */; };
 		A41ACEFE1BF19295009B18C7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41ACEFD1BF19295009B18C7 /* ViewController.m */; };
@@ -32,6 +33,7 @@
 		07B775709CCE560BAD6421B3 /* Pods-FISParkingFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FISParkingFinder.release.xcconfig"; path = "Pods/Target Support Files/Pods-FISParkingFinder/Pods-FISParkingFinder.release.xcconfig"; sourceTree = "<group>"; };
 		897819DA1BFE2960004CF706 /* FISAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISAnnotation.h; sourceTree = "<group>"; };
 		897819DB1BFE2960004CF706 /* FISAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISAnnotation.m; sourceTree = "<group>"; };
+		897819DD1BFE3525004CF706 /* invisible-button.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "invisible-button.gif"; path = "../../../../Downloads/invisible-button.gif"; sourceTree = "<group>"; };
 		A41ACEF31BF19295009B18C7 /* FISParkingFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FISParkingFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A41ACEF71BF19295009B18C7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A41ACEF91BF19295009B18C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				A41ACEFA1BF19295009B18C7 /* AppDelegate.m */,
 				A41ACEFC1BF19295009B18C7 /* ViewController.h */,
 				A41ACEFD1BF19295009B18C7 /* ViewController.m */,
+				897819DD1BFE3525004CF706 /* invisible-button.gif */,
 				A41ACEFF1BF19295009B18C7 /* Main.storyboard */,
 				A41ACF361BF923B5009B18C7 /* FISSign.h */,
 				A41ACF371BF923B5009B18C7 /* FISSign.m */,
@@ -212,6 +215,7 @@
 			files = (
 				A41ACF091BF19295009B18C7 /* LaunchScreen.storyboard in Resources */,
 				A41ACF131BF38B52009B18C7 /* ManhattanSignsLocations-200results.sql in Resources */,
+				897819DE1BFE3525004CF706 /* invisible-button.gif in Resources */,
 				A41ACF171BF3A766009B18C7 /* manhattan-sign-locations.sqlite in Resources */,
 				A41ACF061BF19295009B18C7 /* Assets.xcassets in Resources */,
 				A41ACF011BF19295009B18C7 /* Main.storyboard in Resources */,

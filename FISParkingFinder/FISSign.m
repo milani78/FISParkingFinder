@@ -14,7 +14,8 @@
 #import <MapKit/MapKit.h>
 
 
-@implementation FISSign 
+@implementation FISSign
+
 
 
 - (instancetype)init
@@ -41,7 +42,7 @@
         _signDays = signDays;
         _regulation = regulation;
 
-        mapView.delegate = self;
+//        mapView.delegate = self;
         self.circleButton = [UIButton buttonWithType:UIButtonTypeSystem];
         self.circleButton.backgroundColor = [UIColor clearColor];
         
@@ -61,25 +62,25 @@
 
 
 
-- (MKCircleRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
-{
-    
-    NSLog(@"GETTING CALLED MAP VIEW THING\n\n\n\n\n HI HI HI HI\n\n\n\n\n");
-    
-    if ([overlay isKindOfClass:FISCircle.class]) {
-        
-        FISCircle *circle = (FISCircle *)overlay;
-        UIColor *colorOfCircle = circle.color;
-        
-        MKCircleRenderer *circleView = [[MKCircleRenderer alloc] initWithOverlay:overlay];
-        circleView.fillColor = colorOfCircle;
-        
-        return circleView;
-    }
-    
-    return nil;
-}
-
+//- (MKCircleRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+//{
+//    
+//    NSLog(@"GETTING CALLED MAP VIEW THING\n\n\n\n\n HI HI HI HI\n\n\n\n\n");
+//    
+//    if ([overlay isKindOfClass:FISCircle.class]) {
+//        
+//        FISCircle *circle = (FISCircle *)overlay;
+//        UIColor *colorOfCircle = circle.color;
+//        
+//        MKCircleRenderer *circleView = [[MKCircleRenderer alloc] initWithOverlay:overlay];
+//        circleView.fillColor = colorOfCircle;
+//        
+//        return circleView;
+//    }
+//    
+//    return nil;
+//}
+//
 
 
 // WRITE TIME CONSTRAINT METHOD. SHOULD IT GO INTO THE VIEW CONTROLLER?  Need Date Picker & database

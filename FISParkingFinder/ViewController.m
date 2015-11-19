@@ -192,6 +192,8 @@
                 
                 //annotation action
                 FISAnnotation *anAnnotation = [[FISAnnotation alloc] initWithTitle:sign.regulation andCoordinate:sign.coordinates];
+//                MKAnnotationView *invisibleAnnotation = [self mapView:_mapView viewForAnnotation:anAnnotation];
+                
                 [self.mapView addAnnotation:anAnnotation];
             }
         }
@@ -199,6 +201,25 @@
     }
     
     
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    static NSString *AnnotationViewID = @"annotationViewID";
+    
+    MKAnnotationView *annotationView = (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:AnnotationViewID];
+    
+    if (annotationView == nil)
+    {
+        annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:AnnotationViewID];
+    }
+    
+    annotationView.calloutOffset = CGPointMake(0, 5);
+    annotationView.canShowCallout = YES;
+    annotationView.image = [UIImage imageNamed:@"invisible-button.gif"];
+    annotationView.annotation = annotation;
+    
+    return annotationView;
 }
 //copied from FISSign.m
 - (MKCircleRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
