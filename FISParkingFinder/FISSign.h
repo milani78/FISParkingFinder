@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <UIKit/UIKit.h>
 #import <CoreGraphics/CoreGraphics.h>
+#import "FISAnnotation.h"
 
 
 
@@ -29,8 +30,11 @@
 @property (nonatomic, strong) MKMapView *mapView;
 @property (nonatomic, strong) UIDatePicker *datePicker;
 @property (nonatomic, strong) UIButton *circleButton;
+@property (nonatomic, strong) MKAnnotationView *signAnnotation;
 
 - (instancetype)init;
+
+-(id)initWithTitle:(NSString *)title andCoordinate:(CLLocationCoordinate2D)coordinate;
 
 - (instancetype)initWithCoordinates:(CLLocationCoordinate2D)coordinates
                          hourStarts:(NSUInteger)hourStarts
@@ -46,6 +50,7 @@
 - (MKCircleRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay;
 
 - (BOOL)displayCircle;
+
 
 
 

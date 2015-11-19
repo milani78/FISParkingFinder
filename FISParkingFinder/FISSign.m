@@ -13,6 +13,7 @@
 #import <CoreLocation/CLLocation.h>
 #import <MapKit/MapKit.h>
 
+
 @implementation FISSign 
 
 
@@ -29,6 +30,7 @@
                          regulation:(NSString *)regulation
                         withMapView:(MKMapView *)mapView
                      withDatePicker:(UIDatePicker *)datePicker
+
 {
     self = [super init];
     if (self)
@@ -38,10 +40,8 @@
         _hourEnds = hourEnds;
         _signDays = signDays;
         _regulation = regulation;
-        
+
         mapView.delegate = self;
-        
-        
         self.circleButton = [UIButton buttonWithType:UIButtonTypeSystem];
         self.circleButton.backgroundColor = [UIColor clearColor];
         
@@ -79,7 +79,6 @@
     
     return nil;
 }
-
 
 
 

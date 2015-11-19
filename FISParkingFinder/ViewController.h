@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import <UIKit/UIKit.h>
-
+#import "FISAnnotation.h"
 
 @interface ViewController : UIViewController
 

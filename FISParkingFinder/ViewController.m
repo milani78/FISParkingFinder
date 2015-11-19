@@ -17,6 +17,7 @@
 #import <MapKit/MapKit.h>
 #import "FISSign.h"
 #import "FISCircle.h"
+#import "FISAnnotation.h"
 
 
 
@@ -25,6 +26,7 @@
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+
 
 @end
 
@@ -40,6 +42,7 @@
     
     _mapView.delegate = self;
     
+
     // zooms in on lower manhattan
     
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(40.707721, -74.012952), .8*METERS_PER_MILE,.8*METERS_PER_MILE);
@@ -170,8 +173,10 @@
                                                  withDatePicker:self.datePicker];
     NSArray *dots = @[aSign, anotherSign];
 
-    // this removes ALL overlays
+    // this removes ALL overlays and annotations
+    
     [self.mapView removeOverlays: self.mapView.overlays];
+    [self.mapView removeAnnotations:self.mapView.annotations];
     for (FISSign *sign in dots)
     {
         for (NSUInteger i = 0; i < (sign.signDays.count); i++)
@@ -184,6 +189,10 @@
                 FISCircle *aCircle = (FISCircle *)[FISCircle circleWithCenterCoordinate:sign.coordinates radius:9];
                 aCircle.color = [UIColor colorWithRed:0 green:255 blue:213 alpha:0.8];
                 [_mapView addOverlay:aCircle];
+                
+                //annotation action
+                FISAnnotation *anAnnotation = [[FISAnnotation alloc] initWithTitle:sign.regulation andCoordinate:sign.coordinates];
+                [self.mapView addAnnotation:anAnnotation];
             }
         }
 
