@@ -10,11 +10,14 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-
+@class FISSign;
 @interface ViewController : UIViewController <CLLocationManagerDelegate>
 
-@property (nonatomic, strong) NSMutableArray *signObjects;
+@property (nonatomic, strong) NSMutableArray<FISSign*> *signObjects;
 @property (nonatomic, strong) CAShapeLayer *layer;
 @property (strong, nonatomic) CLLocationManager *locationManager;
+
+- (void)mapTapped:(UITapGestureRecognizer *)recognizer;
+
 @end
 
