@@ -18,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="m8d-9J-tDp">
-                                <rect key="frame" x="-20" y="28" width="414" height="667"/>
+                                <rect key="frame" x="16" y="28" width="343" height="639"/>
                                 <subviews>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gRl-Oh-jE0">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="451"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="423"/>
                                     </mapView>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="JW5-F0-Ftm">
-                                        <rect key="frame" x="0.0" y="451" width="414" height="216"/>
+                                        <rect key="frame" x="0.0" y="423" width="343" height="216"/>
                                         <date key="date" timeIntervalSinceReferenceDate="469314451.71561497">
                                             <!--2015-11-15 21:07:31 +0000-->
                                         </date>
@@ -48,10 +48,27 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="m8d-9J-tDp" secondAttribute="bottom" constant="-28" id="8tt-N3-QHx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="m8d-9J-tDp" secondAttribute="trailing" id="9FY-uT-DEc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="m8d-9J-tDp" secondAttribute="trailing" id="9PR-hR-jaO"/>
+                            <constraint firstItem="m8d-9J-tDp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="9wm-ZL-b1V"/>
+                            <constraint firstItem="m8d-9J-tDp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="LeV-UK-YOb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="m8d-9J-tDp" secondAttribute="bottom" id="QOv-CA-dYj"/>
                             <constraint firstItem="m8d-9J-tDp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-36" id="QWF-js-ADR"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="m8d-9J-tDp" secondAttribute="bottom" id="hYt-ZD-jFS"/>
+                            <constraint firstItem="m8d-9J-tDp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="l3J-tU-sXB"/>
                             <constraint firstItem="m8d-9J-tDp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="n1z-Mr-OGK"/>
+                            <constraint firstItem="m8d-9J-tDp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="vmL-lk-pjn"/>
                             <constraint firstItem="m8d-9J-tDp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xcJ-nG-aRZ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8tt-N3-QHx"/>
+                                <exclude reference="9wm-ZL-b1V"/>
+                                <exclude reference="QWF-js-ADR"/>
+                                <exclude reference="l3J-tU-sXB"/>
+                                <exclude reference="vmL-lk-pjn"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
