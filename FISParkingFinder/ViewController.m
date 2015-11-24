@@ -177,6 +177,7 @@
     // this removes ALL overlays
     [self.mapView removeOverlays: self.mapView.overlays];
     [self.mapView removeAnnotations:self.mapView.annotations];
+    
     for (FISSign *sign in self.signObjects)
     {
         NSLog(@"sign #%ld - hourStarts:%ld hourEnds:%ld signDays:%@",[self.signObjects indexOfObject:sign], sign.hourStarts, sign.hourEnds, sign.signDays);
@@ -184,7 +185,11 @@
         for (NSUInteger i = 0; i < (sign.signDays.count); i++)
         {
             NSLog(@"in for loop in datePickerDidPickDate");
-            if ((sign.hourStarts <= hour) && (hour < sign.hourEnds) && ([sign.signDays containsObject:daysOfTheWeek[dayOfWeek]]))
+            BOOL hoursOfFreeParking = ((sign.hourStarts > hour) || (hour > sign.hourEnds));
+            BOOL daysOfNoParking = ([sign.signDays containsObject:daysOfTheWeek[dayOfWeek]]);
+            if ((hoursOfFreeParking && daysOfNoParking) || (!daysOfNoParking) )
+                
+            //if (((sign.hourStarts >= hour) || (hour > sign.hourEnds)) && ([sign.signDays containsObject:daysOfTheWeek[dayOfWeek]]))
             {
                 NSLog(@"MATCHED CRITERIA IN IF STATEMENT");
                 //shows the circle; copied from FISSign.m
@@ -193,7 +198,6 @@
                 [_mapView addOverlay:aCircle];
                 
                 FISAnnotation *anAnnotation = [[FISAnnotation alloc] initWithTitle:sign.regulation andCoordinate:sign.coordinate];
-                
                 [self.mapView addAnnotation:anAnnotation];
             }
         }

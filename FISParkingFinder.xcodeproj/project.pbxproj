@@ -23,8 +23,8 @@
 		A41ACF3A1BF924E0009B18C7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41ACF391BF924E0009B18C7 /* MapKit.framework */; };
 		A41ACF3C1BF934A4009B18C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41ACF3B1BF934A4009B18C7 /* UIKit.framework */; };
 		A41ACF3E1BF94198009B18C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41ACF3D1BF94198009B18C7 /* CoreGraphics.framework */; };
-		A445150D1BFD3A9500BDD502 /* test3.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A445150C1BFD3A9500BDD502 /* test3.sqlite */; settings = {ASSET_TAGS = (); }; };
-		A445151D1BFE7DF700BDD502 /* invisible-button.gif in Resources */ = {isa = PBXBuildFile; fileRef = A445151C1BFE7DF700BDD502 /* invisible-button.gif */; settings = {ASSET_TAGS = (); }; };
+		A445150D1BFD3A9500BDD502 /* test3.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A445150C1BFD3A9500BDD502 /* test3.sqlite */; };
+		A445151D1BFE7DF700BDD502 /* invisible-button.gif in Resources */ = {isa = PBXBuildFile; fileRef = A445151C1BFE7DF700BDD502 /* invisible-button.gif */; };
 		A46CB0F01BF94C9700D35BB3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46CB0EF1BF94C9700D35BB3 /* CoreLocation.framework */; };
 		A46CB0F21BF94CAB00D35BB3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46CB0F11BF94CAB00D35BB3 /* Foundation.framework */; };
 		A46CB0F51BF97D4B00D35BB3 /* FISCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = A46CB0F41BF97D4B00D35BB3 /* FISCircle.m */; };
@@ -192,6 +192,7 @@
 				TargetAttributes = {
 					A41ACEF21BF19295009B18C7 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 5RF862A226;
 					};
 				};
 			};
@@ -385,10 +386,13 @@
 			baseConfigurationReference = B07114117FFBE16B6BF35287 /* Pods-FISParkingFinder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = FISParkingFinder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.FIS.PalindromeFinder.FISParkingFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -397,10 +401,13 @@
 			baseConfigurationReference = 07B775709CCE560BAD6421B3 /* Pods-FISParkingFinder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = FISParkingFinder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.FIS.PalindromeFinder.FISParkingFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
