@@ -193,8 +193,8 @@
             {
                 NSLog(@"MATCHED CRITERIA IN IF STATEMENT");
                 //shows the circle; copied from FISSign.m
-                FISCircle *aCircle = (FISCircle *)[FISCircle circleWithCenterCoordinate:sign.coordinate radius:9];
-                aCircle.color = [UIColor colorWithRed:0 green:255 blue:213 alpha:0.8];
+                FISCircle *aCircle = (FISCircle *)[FISCircle circleWithCenterCoordinate:sign.coordinate radius:10];
+                aCircle.color = [UIColor colorWithRed:0 green:255 blue:213 alpha:0.65];
                 [_mapView addOverlay:aCircle];
                 
                 FISAnnotation *anAnnotation = [[FISAnnotation alloc] initWithTitle:sign.regulation andCoordinate:sign.coordinate];
