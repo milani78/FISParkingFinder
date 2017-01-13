@@ -2,7 +2,7 @@
 <p>Team: Inga Kytchanova and Matt Chang.
 <br><br>
 <b>App description:</b><br>
-This app was designed to help with finding free street parking in Manhattan. We coded this quick litle app for our student project at the Flatiron School.</p>
+This app was designed to help with finding free street parking in Manhattan. We coded this quick little app for our student project at the Flatiron School.</p>
 
 <ul>
 <li><i>My role in the project:</i></li>
