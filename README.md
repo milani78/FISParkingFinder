@@ -9,7 +9,7 @@ This app was designed to help with finding free street parking in Manhattan. We 
 <li>I worked on integrating the NYC Open Data’s Street Sign database into the app.</li>
 <br>
 <li><i>The team's role:</i></li>
-<li>Matt worked on app integration with MapKit and the ability to select the time and the day of the week to see available parking areas.</li>
+<li>Matt worked on the app's integration with MapKit and the ability to select the time and the day of the week to see available parking areas.</li>
 </ul>
 <br>
 <br>
